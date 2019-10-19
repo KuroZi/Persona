@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Ejemplo
 {
@@ -10,6 +8,8 @@ namespace Ejemplo
         public string nombre;
         public int edad;
         public float saldo = 0;
+        public int energia = 100;
+
 
         public Persona(string unNombre, int unaEdad)
         {
@@ -29,7 +29,22 @@ namespace Ejemplo
 
         public void verSaldo()
         {
-            Console.WriteLine("Saldo: " + this.saldo);
+            Console.WriteLine("Saldo de "+nombre+": "+ this.saldo);
+        }
+
+        public void dormir(int energiaGanada)
+        {
+            energia = Math.Min(100, energia + energiaGanada);
+        }
+
+        public void hacerEjercicio(int energiaGastada)
+        {
+            energia = Math.Max(0, energia - energiaGastada);
+        }
+
+        public void verEnergia()
+        {
+            Console.WriteLine("Energia de "+nombre+": "+ this.energia);
         }
 
     }
